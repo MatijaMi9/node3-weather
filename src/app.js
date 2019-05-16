@@ -11,6 +11,9 @@ const forecast = require('./utils/forecast');
 
 const app = express(); // make express app
 
+// HEROKU SETUP
+const port = process.env.PORT || 3000;
+
 // Define paths for express config
 const publicDirectoryPath = path.join(__dirname,'../public');
 const viewsPath = path.join(__dirname,'../templates/views');
@@ -162,7 +165,7 @@ app.get('*',(req,res) => {
 // app.com/about -> third route
 
 // now we need to start server
-app.listen(3000, ()=> {
+app.listen(port, ()=> {
     // callback when server starts
-    console.log('Server started correctly on port 3000');
+    console.log('Server started correctly on port '+port);
 }); // common development port
